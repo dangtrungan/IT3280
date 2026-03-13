@@ -11,7 +11,7 @@ start:
 then:
     addi t1, t1, 1          # x = x + 1
     addi t3, zero, 1        # z = 1
-    j endif                 # skip else
+    j    endif              # skip else
  
 else:
     addi t2, t2, -1         # y = y - 1

@@ -23,6 +23,6 @@ loop:
     add  s5, s5, t0         # sum += A[i]
 
     add  s1, s1, s4         # i += step
-    j loop
+    j    loop
 
 endloop:
