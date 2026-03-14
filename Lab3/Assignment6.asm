@@ -31,7 +31,7 @@ loop:
     lw   t0, 0(t2)          #     t0 = *t2
     
                             #     t1 = abs(A[i])
-    j    abs_val            #     t1 = abs(t0)
+    jal  ra, abs_val        #     t1 = abs(t0)
     
     ble  t1, s3, continue   #     if (abs(A[i]) <= maxAbs) continue;
     add  s3, zero, t1       #     maxAbs = abs(A[i]);
@@ -40,8 +40,6 @@ loop:
 continue:
     addi s2, s2, 1          #     i++;
     j    loop               # }
-
-endloop:
 
 abs_val:
     blt  t0, zero, abs_neg  # if (t0 >= 0) {
@@ -52,3 +50,5 @@ abs_neg:                    # else {
     sub  t1, zero, t0       #     t1 = -t0;
     jalr x0, 0(ra)          #     return t1;
                             # }
+
+endloop:
